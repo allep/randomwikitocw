@@ -12,7 +12,9 @@ BANDWIDTH=500
 # Internals
 TOPIC=""
 TEMP_FILE=""
-ACTIVATE="/home/alle/workspace/venv/ebook/bin/activate"
+ACTIVATE="$HOME/workspace/venv/ebook/bin/activate"
+THIS_DIR=$(pwd)
+WIKIGETTER=$(find . -name wikigetter.py)
 
 # Functions
 get_random_topic() {
@@ -22,10 +24,9 @@ get_random_topic() {
 }
 
 retrieve_content_from_wikipedia() {
-    echo "Retrieving $TOPIC ..."
-    source "$ACTIVATE"
-    # FIXME: determine wikigetter path dynamically
-    python src/wikigetter.py "$TOPIC" "$TEMP_FILE"
+    echo "Retrieving $TOPIC to $TEMP_FILE"
+    source $ACTIVATE
+    python "$WIKIGETTER" "$TOPIC" "$TEMP_FILE"
     deactivate
 }
 
