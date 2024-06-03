@@ -3,6 +3,8 @@
 Wikigetter A bare-minimal summary getter for wikipedia.
 """
 
+import unicodedata
+
 __author__ = "Alessandro Paganelli"
 __version__ = "0.0.1"
 __license__ = "MIT"
@@ -30,7 +32,7 @@ def main():
 
     topic = args.topic
     print('Getting a summary for: {t}'.format(t=topic))
-    summary = get_summary(topic)
+    summary = get_summary(topic).encode('ascii', 'ignore').decode()
 
     outfile = args.outfile
     print('Dumping summary to file: {f}'.format(f=outfile))
