@@ -3,8 +3,8 @@
 OUTFILE=$1
 
 # Settings
-WPM=17
-SNR=10
+WPM=18
+SNR=13
 
 # Available: 100, 500, 1000, 2100
 BANDWIDTH=500
